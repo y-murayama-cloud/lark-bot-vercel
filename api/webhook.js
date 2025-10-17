@@ -18,8 +18,9 @@ export default async function handler(req, res) {
 
   // URL検証イベント
   if (body.type === 'url_verification' && body.challenge) {
-    return res.status(200).json({ challenge: body.challenge });
+  return res.status(200).json({ challenge: body.challenge });
   }
+
 
   // 署名検証（Encrypt Keyが設定されている場合のみ）
   if (encryptKey && !verifySignature(body, signature, encryptKey)) {
